@@ -113,6 +113,8 @@ disallowed-methods = [
   "async_std::time::Instant::elapsed",
   "async_std::time::SystemTime::now",
   "async_std::time::SystemTime::elapsed",
+
+  # In the future, cap-async-std intends to cover the networking APIs as well.
   "async_std::net::TcpListener::bind",
   "async_std::net::TcpStream::connect",
   "async_std::net::UdpSocket::bind",
