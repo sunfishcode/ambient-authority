@@ -30,11 +30,14 @@ The convention for a crate to declare that its API avoids ambient authority is:
    `Mutex`, `RwLock`, or similar state, including `once_cell` or `lazy_static`
    state with initialization that uses ambient authority.
 
-The instructions for a user wishing to only use capability-oriented crates are:
+One of the cool things about capability-oriented APIs is that programs don't
+need to be pure to take advantage of them. That said, for programs which do which
+to aim for purity, this repository has a clippy configuration which can help:
  - Manually ensure that all immediate dependencies follow the above convention.
- - Copy the clippy/clippy.toml file into their top level source directory, add
-   `#![deny(clippy::disallowed_method)]` to their main.rs or lib.rs, and run
-   `cargo +nightly clippy` or equivalent.
+ - Copy the [clippy/clippy.toml] file into the top level source directory, add
+   `#![deny(clippy::disallowed_method)]` to the root module (main.rs or lib.rs),
+   and run `cargo +nightly clippy` or equivalent.
 
+[clippy/clippy.toml]: https://github.com/sunfishcode/ambient-authority/blob/main/clippy/clippy.toml
 [`AmbientAuthority`]: https://docs.rs/ambient-authority/latest/ambient_authority/struct.AmbientAuthority.html
 [`ambient_authority`]: https://docs.rs/ambient-authority/latest/ambient_authority/func.ambient_authority.html
