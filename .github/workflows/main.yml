@@ -41,3 +41,24 @@ jobs:
       with:
         toolchain: ${{ matrix.rust }}
     - run: cargo test --workspace --all-features
+
+  clippy:
+    name: Nightly Clippy
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        build: [nightly]
+        include:
+          - build: nightly
+            os: ubuntu-latest
+            rust: nightly
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        submodules: true
+    - uses: ./.github/actions/install-rust
+      with:
+        toolchain: ${{ matrix.rust }}
+    - run: rustup component add clippy
+    - run: cargo clippy --workspace --all-features

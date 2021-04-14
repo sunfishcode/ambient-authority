@@ -27,6 +27,7 @@
 //! ```
 
 #![deny(missing_docs)]
+#![deny(clippy::disallowed_method)]
 #![forbid(unsafe_code)]
 #![no_std]
 
