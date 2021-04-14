@@ -26,9 +26,9 @@ The convention for a crate to declare that its API avoids ambient authority is:
    [`ambient_authority`] function and `AmbientAuthority` type from this crate.
 
  - Ensure that all other `pub` functions avoid using ambient authority,
-   including mutable static state such as static `Atomic` state, static
-   `Cell`s or `RefCell`s, or `once_cell` or `lazy_static` state with
-   initialization that uses ambient authority.
+   including mutable static state such as static `Atomic`, `Cell`, `RefCell`,
+   `Mutex`, `RwLock`, or similar state, including `once_cell` or `lazy_static`
+   state with initialization that uses ambient authority.
 
 The instructions for a user wishing to only use capability-oriented crates are:
  - Manually ensure that all immediate dependencies follow the above convention.
