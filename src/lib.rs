@@ -20,7 +20,9 @@
 //! To use an API that uses [`AmbientAuthority`], call [`ambient_authority`]
 //! and pass the result:
 //!
-//! ```rust
+//! ```rust,ignore
+//! use ambient_authority::ambient_authority;
+//!
 //! do_a_thing(ambient_authority());
 //! ```
 
