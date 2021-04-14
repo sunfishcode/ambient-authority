@@ -46,6 +46,8 @@ disallowed-methods = [
   "std::time::Instant::elapsed",
   "std::time::SystemTime::now",
   "std::time::SystemTime::elapsed",
+
+  # In the future, cap-std intends to cover the networking APIs as well.
   "std::net::TcpListener::bind",
   "std::net::TcpStream::connect",
   "std::net::UdpSocket::bind",
