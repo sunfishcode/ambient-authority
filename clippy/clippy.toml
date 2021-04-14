@@ -151,4 +151,10 @@ disallowed-methods = [
   "tempfile::SpooledTempFile::new",
   "tempfile::TempDir::new",
   "tempfile::TempDir::new_in",
+
+  # Use cap-fs-ext instead.
+  "fs_set_times::set_atime",
+  "fs_set_times::set_mtime",
+  "fs_set_times::set_times",
+  "fs_set_times::set_symlink_times",
 ]
