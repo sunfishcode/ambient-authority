@@ -2,8 +2,9 @@
 # disallows functions in `std` and a few other crates which utilize ambient
 # authority.
 #
-# The Rust standard library is pretty big, and it's possible I've missed some
-# things. Corrections welcome!
+# The Rust standard library is pretty big, and this list is currently
+# maintained by hand, so it's possible there are errors and omissions.
+# Corrections welcome!
 #
 # [`disallowed_method`] https://rust-lang.github.io/rust-clippy/master/index.html#disallowed_method
 disallowed-methods = [

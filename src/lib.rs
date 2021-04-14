@@ -16,6 +16,13 @@
 //!     println!("hello world");
 //! }
 //! ```
+//!
+//! To use an API that uses [`AmbientAuthority`], call [`ambient_authority`]
+//! and pass the result:
+//!
+//! ```rust
+//! do_a_thing(ambient_authority());
+//! ```
 
 #![deny(missing_docs)]
 #![forbid(unsafe_code)]

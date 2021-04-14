@@ -17,19 +17,21 @@ program can do that interacts with the outside world that isn't represented by
 a handle.
 
 This crate defines a function [`ambient_authority`] which returns a value of
-type [`AmbientAuthority`], which is an empty type used in APIs to declare that
-they use ambient authority.
+type [`AmbientAuthority`], which is an empty type used in function signatures
+to declare that they use ambient authority.
 
-The convention for a crate to declare that its API is capability-oriented is:
- - Re-export the [`ambient_authority`] function and [`AmbientAuthority`] type
-   from this crate.
- - Add an `AmbientAuthority` argument to any function in its API which uses
-   ambient authority.
+The convention for a crate to declare that its API avoids ambient authority is:
+ - If the crate wishes to have functions which use ambient authority, adding an
+   [`AmbientAuthority`] argument to them, and re-exporting the
+   [`ambient_authority`] function and `AmbientAuthority` type from this crate.
+
+ - Ensure that all other `pub` functions avoid using ambient authority,
+   including mutable static state such as static `Atomic` state, static
+   `Cell`s or `RefCell`s, or `once_cell` or `lazy_static` state with
+   initialization that uses ambient authority.
 
 The instructions for a user wishing to only use capability-oriented crates are:
- - Ensure that all immediate dependencies have a re-export of
-   [`ambient_authority`] and [`AmbientAuthority`] from this crate, which
-   indicates their intent to provide a capability-oriented API.
+ - Manually ensure that all immediate dependencies follow the above convention.
  - Copy the clippy/clippy.toml file into their top level source directory, add
    `#![deny(clippy::disallowed_method)]` to their main.rs or lib.rs, and run
    `cargo +nightly clippy` or equivalent.
