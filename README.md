@@ -22,8 +22,10 @@ to declare that they use ambient authority.
 
 The convention for a crate to declare that its API avoids ambient authority is:
  - If the crate wishes to have functions which use ambient authority, adding an
-   [`AmbientAuthority`] argument to them, and re-exporting the
-   [`ambient_authority`] function and `AmbientAuthority` type from this crate.
+   [`AmbientAuthority`] argument to them, along with a `# Ambient Authority`
+   section in their documentation comments explaining their use of ambient
+   authority, and re-exporting the [`ambient_authority`] function and
+   `AmbientAuthority` type from this crate.
 
  - Ensure that all other `pub` functions avoid using ambient authority,
    including mutable static state such as static `Atomic`, `Cell`, `RefCell`,
