@@ -11,6 +11,10 @@ disallowed-methods = [
   # Crates that explicitly declare their ambient authorities require this.
   "ambient_authority::ambient_authority",
 
+  # By default we warn about ambient authorities known at compile time as well;
+  # comment this out if you're only interested in dynamic ambient authority.
+  "ambient_authority::ambient_authority_known_at_compile_time",
+
   # Use cap-std instead.
   "std::fs::canonicalize",
   "std::fs::copy",
