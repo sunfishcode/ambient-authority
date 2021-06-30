@@ -45,3 +45,19 @@ pub struct AmbientAuthority(());
 pub fn ambient_authority() -> AmbientAuthority {
     AmbientAuthority(())
 }
+
+/// Internal implementation detail for macros.
+///
+/// For users concerned about resource names such as file names or network
+/// addresses being influenced by untrusted code, file names in static string
+/// literals and network addresses in integer literals are ok. This function
+/// is similar to `ambient_authority` but is meant to be used in macros that
+/// verify that the resource identifiers are known at compile time. Users of
+/// the `disallowed_method` clippy lint can opt to allow or disallow this
+/// function separately from the general `ambient_authority` function.
+#[inline]
+#[must_use]
+#[doc(hidden)]
+pub const fn ambient_authority_known_at_compile_time() -> AmbientAuthority {
+    AmbientAuthority(())
+}
