@@ -2,6 +2,10 @@
 # disallows functions in `std` and a few other crates which utilize ambient
 # authority.
 #
+# To use it, copy this [clippy.toml] file into the top level source directory,
+# add `#![deny(clippy::disallowed_method)]` to the root module (main.rs or
+# lib.rs), and run `cargo clippy`.
+#
 # The Rust standard library is pretty big, and this list is currently
 # maintained by hand, so it's possible there are errors and omissions.
 # Corrections welcome!

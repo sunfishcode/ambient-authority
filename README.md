@@ -38,7 +38,7 @@ to aim for purity, this repository has a clippy configuration which can help:
  - Manually ensure that all immediate dependencies follow the above convention.
  - Copy the [clippy.toml] file into the top level source directory, add
    `#![deny(clippy::disallowed_method)]` to the root module (main.rs or lib.rs),
-   and run `cargo +nightly clippy` or equivalent.
+   and run `cargo clippy` or equivalent.
 
 [clippy.toml]: https://github.com/sunfishcode/ambient-authority/blob/main/clippy.toml
 [`AmbientAuthority`]: https://docs.rs/ambient-authority/latest/ambient_authority/struct.AmbientAuthority.html
