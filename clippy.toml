@@ -132,6 +132,7 @@ disallowed-methods = [
   "async_std::os::unix::net::UnixDatagram::send_vectored_with_ancillary_to",
 
   # Use cap-directories instead.
+  "std::env::home_dir",
   "directories_next::BaseDirs::new",
   "directories_next::ProjectDirs::from_path",
   "directories_next::ProjectDirs::from",
@@ -147,6 +148,7 @@ disallowed-methods = [
   "rand::random",
 
   # Use cap-tempfile instead.
+  "std::env::temp_dir",
   "tempfile::spooled_tempfile",
   "tempfile::tempdir",
   "tempfile::tempdir_in",
