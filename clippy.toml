@@ -37,6 +37,7 @@ disallowed-methods = [
   "std::fs::set_permissions",
   "std::fs::soft_link",
   "std::fs::symlink_metadata",
+  "std::fs::try_exists",
   "std::fs::write",
   "std::fs::DirBuilder::create",
   "std::fs::File::open",
