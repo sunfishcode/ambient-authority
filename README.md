@@ -12,34 +12,46 @@
   </p>
 </div>
 
-In capability-based security context, *ambient authority* means anything a
+In capability-based security contexts, *ambient authority* means anything a
 program can do that interacts with the outside world that isn't represented by
 a handle.
 
-This crate defines a function [`ambient_authority`] which returns a value of
-type [`AmbientAuthority`], which is an empty type used in function signatures
-to declare that they use ambient authority.
+This crate defines an empty function, [`ambient_authority`], which returns a
+value of type [`AmbientAuthority`]. This is an empty type used in function
+signatures to declare that they use ambient authority. When an API uses
+`AmbientAuthority` in all functions that use ambient authority, one can quickly
+locate all the calls to such functions by scanning for calls to
+`ambient_authority`.
 
-The convention for a crate to declare that its API avoids ambient authority is:
- - If the crate wishes to have functions which use ambient authority, adding an
-   [`AmbientAuthority`] argument to them, along with a `# Ambient Authority`
-   section in their documentation comments explaining their use of ambient
-   authority, and re-exporting the [`ambient_authority`] function and
-   `AmbientAuthority` type from this crate.
+To use the `AmbientAuthroity` type in an API:
+
+ - Add an [`AmbientAuthority`] argument at the end of the argument list of any
+   function that uses ambient authroity, and add a `# Ambient Authority`
+   section in the documentation comments for such functions explaining their
+   use of ambient authority.
+
+ - Re-export the [`ambient_authority`] function and `AmbientAuthority` type
+   from this crate, so that users can easily use the same version.
 
  - Ensure that all other `pub` functions avoid using ambient authority,
    including mutable static state such as static `Atomic`, `Cell`, `RefCell`,
    `Mutex`, `RwLock`, or similar state, including `once_cell` or `lazy_static`
    state with initialization that uses ambient authority.
 
+For example, see the [cap-std] crate's API, which follows these guidelines.
+
 One of the cool things about capability-oriented APIs is that programs don't
-need to be pure to take advantage of them. That said, for programs which do which
-to aim for purity, this repository has a clippy configuration which can help:
+need to be pure to take advantage of them. That said, for programs which do
+which to aim for purity, this repository has a clippy configuration which can
+help. To use it:
+
  - Manually ensure that all immediate dependencies follow the above convention.
+
  - Copy the [clippy.toml] file into the top level source directory, add
    `#![deny(clippy::disallowed_method)]` to the root module (main.rs or lib.rs),
    and run `cargo clippy` or equivalent.
 
+[cap-std]: https://docs.rs/cap-std/*/cap_std/
 [clippy.toml]: https://github.com/sunfishcode/ambient-authority/blob/main/clippy.toml
 [`AmbientAuthority`]: https://docs.rs/ambient-authority/latest/ambient_authority/struct.AmbientAuthority.html
 [`ambient_authority`]: https://docs.rs/ambient-authority/latest/ambient_authority/func.ambient_authority.html
