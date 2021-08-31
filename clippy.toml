@@ -66,6 +66,17 @@ disallowed-methods = [
   "std::os::unix::net::UnixDatagram::send_to",
   "std::os::unix::net::UnixDatagram::send_vectored_with_ancillary_to",
 
+  # Use cap-std instead; specifically, `cap_std::fs_utf8`.
+  "camino::Utf8Path::metadata",
+  "camino::Utf8Path::symlink_metadata",
+  "camino::Utf8Path::canonicalize",
+  "camino::Utf8Path::read_link",
+  "camino::Utf8Path::read_dir",
+  "camino::Utf8Path::exists",
+  "camino::Utf8Path::try_exists",
+  "camino::Utf8Path::is_file",
+  "camino::Utf8Path::is_dir",
+
   # No replacement available for these yet.
   "std::process::abort",
   "std::process::exit",
