@@ -49,6 +49,7 @@ disallowed-methods = [
   "std::path::Path::read_link",
   "std::path::Path::read_dir",
   "std::path::Path::exists",
+  "std::path::Path::try_exists",
   "std::path::Path::is_file",
   "std::path::Path::is_dir",
   "std::time::Instant::now",
