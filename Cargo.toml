@@ -9,6 +9,3 @@ keywords = ["io"]
 categories = ["rust-patterns"]
 repository = "https://github.com/sunfishcode/ambient-authority"
 exclude = ["/.github"]
-
-[badges]
-maintenance = { status = "actively-developed" }
