@@ -159,6 +159,7 @@ disallowed-methods = [
   "rand::rngs::ThreadRng::default",
   "rand::thread_rng",
   "rand::random",
+  "rand::SeedableRng::from_entropy",
 
   # Use cap-tempfile instead.
   "std::env::temp_dir",
