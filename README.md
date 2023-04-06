@@ -48,8 +48,8 @@ help. To use it:
  - Manually ensure that all immediate dependencies follow the above convention.
 
  - Copy the [clippy.toml] file into the top level source directory, add
-   `#![deny(clippy::disallowed_method)]` to the root module (main.rs or lib.rs),
-   and run `cargo clippy` or equivalent.
+   `#![deny(clippy::disallowed_methods)]` to the root module (main.rs or
+   lib.rs), and run `cargo clippy` or equivalent.
 
 [cap-std]: https://docs.rs/cap-std/*/cap_std/
 [clippy.toml]: https://github.com/sunfishcode/ambient-authority/blob/main/clippy.toml
