@@ -179,4 +179,19 @@ disallowed-methods = [
   "fs_set_times::set_mtime",
   "fs_set_times::set_times",
   "fs_set_times::set_symlink_times",
+
+  # rustix::net things that can reference specific addresses. For other
+  # rustix modules, we don't have all the functions listed out, so just...
+  # don't use the other modules.
+  "rustix::net::bind",
+  "rustix::net::bind_v6",
+  "rustix::net::bind_v4",
+  "rustix::net::bind_unix",
+  "rustix::net::bind_any",
+  "rustix::net::connect",
+  "rustix::net::connect_v6",
+  "rustix::net::connect_v4",
+  "rustix::net::connect_unix",
+  "rustix::net::connect_any",
+  "rustix::net::sendto",
 ]
