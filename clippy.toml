@@ -179,4 +179,24 @@ disallowed-methods = [
   "fs_set_times::set_mtime",
   "fs_set_times::set_times",
   "fs_set_times::set_symlink_times",
+
+  # Rustix things that can reference specific addresses.
+  "rustix::net::bind",
+  "rustix::net::bind_v6",
+  "rustix::net::bind_v4",
+  "rustix::net::bind_unix",
+  "rustix::net::bind_any",
+  "rustix::net::connect",
+  "rustix::net::connect_v6",
+  "rustix::net::connect_v4",
+  "rustix::net::connect_unix",
+  "rustix::net::connect_any",
+  "rustix::net::sendto",
+
+  # For now, just call all of `rustix::fs` etc. ambient, even though some
+  # things like `fstat` aren't.
+  "rustix::fs",
+  "rustix::process",
+  "rustix::rand",
+  "rustix::time",
 ]
