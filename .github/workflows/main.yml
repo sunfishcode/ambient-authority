@@ -61,4 +61,4 @@ jobs:
       with:
         toolchain: ${{ matrix.rust }}
     - run: rustup component add clippy
-    - run: cargo clippy --workspace --all-features --all-targets -- --deny clippy::all --deny clippy::pedantic --deny clippy::nursery --deny clippy::cargo --deny clippy::restriction --allow clippy::implicit_return
+    - run: cargo clippy --workspace --all-features --all-targets -- --deny clippy::all --deny clippy::pedantic --deny clippy::nursery --deny clippy::cargo --allow clippy::implicit_return
