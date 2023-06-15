@@ -1,4 +1,4 @@
-# This is a clippy.toml file for the [`disallowed_method`] clippy lint which
+# This is a clippy.toml file for the [`disallowed_methods`] clippy lint which
 # disallows functions in `std` and a few other crates which utilize ambient
 # authority.
 #
